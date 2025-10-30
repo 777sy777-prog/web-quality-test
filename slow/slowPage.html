@@ -2,15 +2,28 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>응답 느린 페이지</title>
+    <title>응답 느린 페이지 테스트</title>
     <script>
-        setTimeout(() => {
-            document.body.innerHTML += "<p>페이지 로딩 완료</p>";
-        }, 5000);
+        // 10초 후에 본문 내용 표시
+        window.addEventListener("DOMContentLoaded", () => {
+            const body = document.body;
+            body.innerHTML += "<h1>페이지 로딩 중...</h1>";
+            // 느린 로딩 시뮬레이션
+            setTimeout(() => {
+                body.innerHTML += "<p>페이지 로딩 완료 (10초 지연)</p>";
+            }, 10000);
+        });
     </script>
 </head>
 <body>
-    <h1>응답 느린 페이지 테스트</h1>
-    <p>5초 후에 내용이 나타납니다.</p>
+    <p>로딩 중 테스트용 페이지입니다...</p>
+
+    <!-- 추가로 여러 이미지 placeholder를 불러와 렌더링 지연 유도 -->
+    <img src="https://via.placeholder.com/2000x1500?text=TestImage1" alt="Test Image 1">
+    <img src="https://via.placeholder.com/2000x1500?text=TestImage2" alt="Test Image 2">
+    <img src="https://via.placeholder.com/2000x1500?text=TestImage3" alt="Test Image 3">
+    <img src="https://via.placeholder.com/2000x1500?text=TestImage4" alt="Test Image 4">
+    <img src="https://via.placeholder.com/2000x1500?text=TestImage5" alt="Test Image 5">
+    <img src="https://via.placeholder.com/2000x1500?text=TestImage6" alt="Test Image 6">
 </body>
 </html>
