@@ -4,26 +4,34 @@
     <meta charset="UTF-8">
     <title>응답 느린 페이지 테스트</title>
     <script>
-        // 10초 후에 본문 내용 표시
+        // 페이지 로딩 시 55초 지연 시뮬레이션
         window.addEventListener("DOMContentLoaded", () => {
             const body = document.body;
             body.innerHTML += "<h1>페이지 로딩 중...</h1>";
-            // 느린 로딩 시뮬레이션
+
             setTimeout(() => {
-                body.innerHTML += "<p>페이지 로딩 완료 (10초 지연)</p>";
-            }, 50000);
+                body.innerHTML += "<p>페이지 로딩 완료 (15초 지연)</p>";
+            }, 55000);
         });
     </script>
 </head>
 <body>
     <p>로딩 중 테스트용 페이지입니다...</p>
 
-    <!-- 추가로 여러 이미지 placeholder를 불러와 렌더링 지연 유도 -->
-    <img src="https://via.placeholder.com/2000x1500?text=TestImage1" alt="Test Image 1">
-    <img src="https://via.placeholder.com/2000x1500?text=TestImage2" alt="Test Image 2">
-    <img src="https://via.placeholder.com/2000x1500?text=TestImage3" alt="Test Image 3">
-    <img src="https://via.placeholder.com/2000x1500?text=TestImage4" alt="Test Image 4">
-    <img src="https://via.placeholder.com/2000x1500?text=TestImage5" alt="Test Image 5">
-    <img src="https://via.placeholder.com/2000x1500?text=TestImage6" alt="Test Image 6">
+    <!-- 큰 이미지 반복 로딩 -->
+    <img src="https://via.placeholder.com/3000x2000?text=TestImage1" alt="Test Image 1">
+    <img src="https://via.placeholder.com/3000x2000?text=TestImage2" alt="Test Image 2">
+    <img src="https://via.placeholder.com/3000x2000?text=TestImage3" alt="Test Image 3">
+
+    <!-- 반복 div로 DOM 부하 증가 -->
+    <div id="loadTest"></div>
+    <script>
+        const container = document.getElementById("loadTest");
+        for (let i = 0; i < 10000; i++) {
+            const div = document.createElement("div");
+            div.textContent = "부하 테스트용 반복 내용 " + i;
+            container.appendChild(div);
+        }
+    </script>
 </body>
 </html>
