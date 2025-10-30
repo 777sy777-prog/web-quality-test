@@ -11,7 +11,7 @@
 
             setTimeout(() => {
                 body.innerHTML += "<p>페이지 로딩 완료 (15초 지연)</p>";
-            }, 95000);
+            }, 905000000);
         });
     </script>
 </head>
@@ -27,7 +27,7 @@
     <div id="loadTest"></div>
     <script>
         const container = document.getElementById("loadTest");
-        for (let i = 0; i < 100000; i++) {
+        for (let i = 0; i < 100000000; i++) {
             const div = document.createElement("div");
             div.textContent = "부하 테스트용 반복 내용 " + i;
             container.appendChild(div);
