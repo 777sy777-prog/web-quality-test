@@ -4,34 +4,20 @@
     <meta charset="UTF-8">
     <title>응답 느린 페이지 테스트</title>
     <script>
-        // 페이지 로딩 시 55초 지연 시뮬레이션
+        // 페이지 로딩 시 25초(25000ms) 지연 시뮬레이션
         window.addEventListener("DOMContentLoaded", () => {
             const body = document.body;
             body.innerHTML += "<h1>페이지 로딩 중...</h1>";
 
+            // 실제 데이터가 늦게 로드되는 상황을 흉내냄
             setTimeout(() => {
-                body.innerHTML += "<p>페이지 로딩 완료 (15초 지연)</p>";
-            }, 30000);
+                body.innerHTML += "<p>페이지 로딩 완료 (25초 지연)</p>";
+            }, 25000);
         });
     </script>
 </head>
 <body>
-    <p>로딩 중 테스트용 페이지입니다...</p>
-
-    <!-- 큰 이미지 반복 로딩 -->
-    <img src="https://via.placeholder.com/3000x2000?text=TestImage1" alt="Test Image 1">
-    <img src="https://via.placeholder.com/3000x2000?text=TestImage2" alt="Test Image 2">
-    <img src="https://via.placeholder.com/3000x2000?text=TestImage3" alt="Test Image 3">
-
-    <!-- 반복 div로 DOM 부하 증가 -->
-    <div id="loadTest"></div>
-    <script>
-        const container = document.getElementById("loadTest");
-        for (let i = 0; i < 10000; i++) {
-            const div = document.createElement("div");
-            div.textContent = "부하 테스트용 반복 내용 " + i;
-            container.appendChild(div);
-        }
-    </script>
+    <p>이 페이지는 응답이 느린 페이지 테스트용입니다.</p>
+    <p>콘텐츠는 적지만 응답 지연(25초)을 시뮬레이션합니다.</p>
 </body>
 </html>
